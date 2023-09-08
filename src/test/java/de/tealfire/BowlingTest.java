@@ -12,17 +12,29 @@ public class BowlingTest {
 
     @Test
     public void testScoreGutterGame() {
-        for (int i = 0; i < 20; i++) {
-            bowling.roll(0);
-        }
+        roll(20, 0);
         assert bowling.score() == 0;
     }
 
     @Test
     public void testScoreGameOfOnes() {
-        for (int i = 0; i < 20; i++) {
-            bowling.roll(1);
-        }
+        roll(20, 1);
         assert bowling.score() == 20;
     }
+
+    private void roll(int n, int pins) {
+        for (int i = 0; i < n; i++) {
+            bowling.roll(pins);
+        }
+    }
+
+    @Test
+    public void testScoreSpare() {
+        bowling.roll(5);
+        bowling.roll(5);
+        bowling.roll(3);
+        roll(17, 0);
+        assert bowling.score() == 16;
+    }
+
 }
