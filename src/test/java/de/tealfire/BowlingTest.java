@@ -1,11 +1,17 @@
 package de.tealfire;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class BowlingTest {
+    private Bowling bowling;
+    @BeforeEach
+    public void setUp() {
+        bowling = new Bowling();
+    }
+
     @Test
     public void testScoreGutterGame() {
-        Bowling bowling = new Bowling();
         for (int i = 0; i < 20; i++) {
             bowling.roll(0);
         }
@@ -14,7 +20,6 @@ public class BowlingTest {
 
     @Test
     public void testScoreGameOfOnes() {
-        Bowling bowling = new Bowling();
         for (int i = 0; i < 20; i++) {
             bowling.roll(1);
         }
