@@ -37,4 +37,13 @@ public class BowlingTest {
         assert bowling.score() == 16;
     }
 
+    @Test
+    public void testScoreStrike() {
+        bowling.roll(10);
+        bowling.roll(3);
+        bowling.roll(4);
+        roll(16, 0);
+        assert bowling.score() == 24;
+    }
+
 }
